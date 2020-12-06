@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Set;
 
 public class FileReader {
     public static void fileInfo(File file) {
@@ -28,19 +29,49 @@ public class FileReader {
     }
 
     //print out HashMap by alphabetical order
-    public static void sortLetter(){
-
+    public static void sortLetter(File file) throws FileNotFoundException {
+        //create HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        //Scan file
+        Scanner input = new Scanner(file);
+        //counter for HashMap
+        int count = 0;
+        //put scanned items into HashMap
+        while (input.hasNextLine()) {
+            String wordInput = input.next();
+            map.put(wordInput, count++);
+        }
+        Set<String> setKeys = map.keySet();
+        for(String key : setKeys){
+            System.out.println( key );
+        }
     }
 
     //print HashMap by ascending order
-    public static void sortNumber(){
-
+    public static void sortNumber(File file) throws FileNotFoundException {
+        //create HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        //Scan file
+        Scanner input = new Scanner(file);
+        //counter for HashMap
+        int count = 0;
+        //put scanned items into HashMap
+        while (input.hasNextLine()) {
+            String wordInput = input.next();
+            map.put(wordInput, count++);
+        }
+        Set<String> setValues = map.keySet();
+        for(String values : setValues){
+            System.out.println( values );
+        }
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("/Users/davisklevgard/Documents/Test.txt");
-        fileInfo(file);
-
+        //fileInfo(file);
+        //fileRead(file);
+        sortLetter(file);
+        sortNumber(file);
     }
 
     public static void testMethod() {
