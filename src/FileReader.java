@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
 
 public class FileReader {
     public static void fileInfo(File file) {
@@ -41,10 +39,8 @@ public class FileReader {
             String wordInput = input.next();
             map.put(wordInput, count++);
         }
-        Set<String> setKeys = map.keySet();
-        for(String key : setKeys){
-            System.out.println( key );
-        }
+        SortedSet<String> letterByKey = new TreeSet<>(map.keySet());
+        System.out.println(letterByKey);
     }
 
     //print HashMap by ascending order
@@ -60,10 +56,8 @@ public class FileReader {
             String wordInput = input.next();
             map.put(wordInput, count++);
         }
-        Set<String> setValues = map.keySet();
-        for(String values : setValues){
-            System.out.println( values );
-        }
+        SortedSet<Integer> numberByValue = new TreeSet<>(map.values());
+        System.out.println(numberByValue);
     }
 
     public static void main(String[] args) throws FileNotFoundException {
